@@ -3,6 +3,9 @@
 
 using namespace std;
 
+// valeur de luminosité mesurée
+static volatile int luminosite_environnement=200;
+
 //classe AnalogSensorTemperature
 AnalogSensorTemperature::AnalogSensorTemperature(int d,int  t):Device(),val(t),temps(d){
   alea=1;
@@ -18,15 +21,15 @@ void AnalogSensorTemperature::run(){
 }
 
 //classe AnalogSensorLuminosity
-AnalogSensorLuminosity::AnalogSensorLuminosity(int l):Device(), {
-  alea=1;
+AnalogSensorLuminosity::AnalogSensorLuminosity(int d):Device(),temps(d) {
+	alea=10;
 }
 
 void AnalogSensorLuminosity::run(){
   while(1){
-    alea=1-alea;
+    alea=10-alea;
     if(ptrmem!=NULL)
-      *ptrmem=val+alea;
+      *ptrmem=luminosite_environnement+alea;
     sleep(temps);
   }
 }
@@ -45,6 +48,38 @@ void DigitalActuatorLED::run(){
     cout << "((((allume))))\n";
     sleep(temps);
     }
+}
+
+//classe DigitalActuatorLED
+IntelligentDigitalActuatorLED::IntelligentDigitalActuatorLED(int t):Device(),state(LOW),temps(t), init(false){
+}
+
+void IntelligentDigitalActuatorLED::run(){
+  //vrai si une modif de lum a déjà été faite
+  int oldState = HIGH; //high car la led est initialisé à low 
+  while(1){
+    if(ptrmem!=NULL)
+      state=*ptrmem;
+    if (state==LOW){
+	  cout << "((((pas de soleil))))\n";
+	  if (state!=oldState){
+	  	oldState = LOW;
+	  	if (init){
+	  		luminosite_environnement = luminosite_environnement-50; 
+	  	}
+	  }
+	}
+    else {
+      cout << "((((soleil !))))\n";
+      init = true; 
+	  if (state!=oldState){
+        oldState = HIGH;
+        luminosite_environnement = luminosite_environnement+50;
+	  }
+	}
+    sleep(temps);
+  }
+	
 }
 
 // classe I2CActuatorScreen
