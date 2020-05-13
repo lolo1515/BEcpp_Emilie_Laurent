@@ -1,4 +1,2 @@
 # BE_Board
-simple simulation of an arduino board
-Test Emilie
-
+Repo du projet de BE cpp 2020 de Emilie ESTIVAL et Laurent DEVEZ.
