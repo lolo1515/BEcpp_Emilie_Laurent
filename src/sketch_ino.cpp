@@ -5,19 +5,59 @@
 void Board::setup(){
   // on configure la vitesse de la liaison
   Serial.begin(9600);
+  //=========projet===========
+
+
+
+
+
+
+
+
+/*=========question===========
 // on fixe les pin en entree et en sorite en fonction des capteurs/actionneurs mis sur la carte
   pinMode(1,INPUT);
   pinMode(2,INPUT);
   pinMode(4,INPUT);
 
   pinMode(0,OUTPUT);
-  pinMode(3,OUTPUT);
+  pinMode(3,OUTPUT);*/
+
+
 
 }
 
 // la boucle de controle arduino
 void Board::loop(){
-  char buf[100];
+ //==================projet=============
+	int lum =0;
+    int i=0;
+	
+	for(i=0;i<12;i++){
+
+		lum = analogRead(1);
+		
+		if (lum<400){
+			digitalWrite(2,LOW);
+		}
+		if (lum>450){
+			digitalWrite(2,HIGH);
+		}
+		sleep(1);
+	}
+
+	journee();
+
+
+
+
+
+
+
+
+
+//==============question===============
+  /*char buf[100];
   int temp = 0;
   int lum = 0;
   int bout = 0;
@@ -27,7 +67,7 @@ void Board::loop(){
 
 
   for(i=0;i<10;i++){
-    // lecture sur la pin 1 : capteur de temperature
+    //lecture sur la pin 1 : capteur de temperature
     temp=analogRead(1);
     lum=analogRead(2);
     sprintf(buf,"temperature: %d; luminosity: %d",temp, lum);
@@ -60,7 +100,7 @@ void Board::loop(){
     digitalWrite(0,LOW);
 	//digitalWrite(3,LOW);
   }
-  bascule=1-bascule;
+  bascule=1-bascule;*/
   
 }
 

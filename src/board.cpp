@@ -7,7 +7,21 @@ int main(){
   // creation d'une board
   Board esp8266;
   // achat des senseurs et actionneurs
-  AnalogSensorTemperature temperature(DELAY,TEMP);
+
+//==========projet============
+  AnalogSensorLuminosity luminosity(DELAY);
+  ActuatorPorte porte(DELAY);
+
+  I2CActuatorScreen screen;
+
+
+  esp8266.pin(1,luminosity);
+  esp8266.pin(2,porte);
+  esp8266.i2c(1,screen);
+
+
+//==========question==========
+  /*AnalogSensorTemperature temperature(DELAY,TEMP);
   AnalogSensorLuminosity luminosity(DELAY);
   ExternalDigitalSensorButton bouton(DELAY);
 
@@ -25,7 +39,7 @@ int main(){
   esp8266.pin(3,ledSoleil);
   esp8266.pin(0,led1);
 
-  esp8266.i2c(1,screen);
+  esp8266.i2c(1,screen);*/
   
   // allumage de la carte
   esp8266.run();

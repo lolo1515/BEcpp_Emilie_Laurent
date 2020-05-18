@@ -6,6 +6,14 @@ using namespace std;
 // valeur de luminosité mesurée
 static volatile int luminosite_environnement=200;
 
+void journee(){
+	if (luminosite_environnement==200){
+		luminosite_environnement=5000;
+	}
+	if (luminosite_environnement==5000){
+		luminosite_environnement=200;
+	}
+}
 //classe AnalogSensorTemperature
 AnalogSensorTemperature::AnalogSensorTemperature(int d,int  t):Device(),val(t),temps(d){
   alea=1;
@@ -29,7 +37,7 @@ void AnalogSensorLuminosity::run(){
   while(1){
     alea=10-alea;
     if(ptrmem!=NULL)
-      *ptrmem=luminosite_environnement+alea;
+      *ptrmem=alea;
     sleep(temps);
   }
 }
@@ -110,6 +118,26 @@ void ExternalDigitalSensorButton::run(){
 		sleep(temps);
 	}
 }
+
+
+
+//classe ActuatorPorte
+ActuatorPorte::ActuatorPorte(int t):Device(),state(LOW),temps(t){
+}
+
+void ActuatorPorte::run(){
+  while(1){
+    if(ptrmem!=NULL)
+      state=*ptrmem;
+    if (state==LOW)
+      cout << "((((fermé))))\n";
+    else
+    cout << "((((ouverte))))\n";
+    sleep(temps);
+    }
+}
+
+
 
 // classe I2CActuatorScreen
 I2CActuatorScreen::I2CActuatorScreen ():Device(){

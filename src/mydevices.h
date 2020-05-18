@@ -103,6 +103,21 @@ public:
    
 
 
+//classe pour agir sur la porte du poulailler 
+class ActuatorPorte: public Device {
+private:
+  //etat de la porte 
+  int state;
+  // temps entre 2 affichage de l etat de la porte
+  int temps;
+public:
+  // initialisation du temps de rafraichissement
+  ActuatorPorte(int t);
+  // thread representant l'actionneur et permettant de fonctionner independamment de la board
+  virtual void run();
+};
+
+
 
 // exemple d'actionneur sur le bus I2C permettant d'echanger des tableaux de caracteres : un ecran, ne pas oublier d'heriter de Device
 class I2CActuatorScreen : public Device{
@@ -116,5 +131,11 @@ public:
   // thread representant le capteur et permettant de fonctionner independamment de la board
   virtual void run();
 };
+
+
+
+//pour simu une journée
+void journee();
+
 
 #endif
