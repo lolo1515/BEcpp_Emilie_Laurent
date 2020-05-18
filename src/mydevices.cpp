@@ -50,7 +50,11 @@ void DigitalActuatorLED::run(){
     }
 }
 
-//classe DigitalActuatorLED
+
+
+
+
+//classe intelligentDigitalActuatorLED
 IntelligentDigitalActuatorLED::IntelligentDigitalActuatorLED(int t):Device(),state(LOW),temps(t), init(false){
 }
 
@@ -80,6 +84,31 @@ void IntelligentDigitalActuatorLED::run(){
     sleep(temps);
   }
 	
+}
+
+
+
+
+// classe  ExternalDigitalSensorButton 
+ExternalDigitalSensorButton::ExternalDigitalSensorButton(int t): Device(), state(LOW),temps(t){
+}
+
+void ExternalDigitalSensorButton::run(){
+	while(1){
+		if (ifstream("on.txt")){
+			//le fichier on.txt est présent dans le repertoire
+			cout<<"bouton appuyé"<<endl;
+			state=HIGH;
+			*ptrmem=state;
+		}
+		else {
+			//le fichier on.txt n'est pas présent dans le repertoire
+			cout<<"bouton relaché"<<endl;
+			state=LOW;
+			*ptrmem=state;
+		}
+		sleep(temps);
+	}
 }
 
 // classe I2CActuatorScreen
