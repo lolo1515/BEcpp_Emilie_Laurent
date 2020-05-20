@@ -9,7 +9,7 @@
 #include "core_simulation.h"
 
 
-
+/*
 
 // exemple de capteur analogique de temperature, ne pas oublier d'heriter de Device
 class AnalogSensorTemperature: public Device {
@@ -134,8 +134,15 @@ public:
 
 
 
-//pour simu une journée
-void journee();
-
+//classe pour gérer les variables d'environnement
+class Environnement{
+public:
+  //Constructeur
+  Environnement(int lum);
+  //Méthodes pour récupérer et set la luminosité ambiante
+  int getLum();
+  int setLum();
+}
+*/
 
 #endif

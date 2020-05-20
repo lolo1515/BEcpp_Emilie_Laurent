@@ -4,16 +4,33 @@
 using namespace std;
 
 // valeur de luminosité mesurée
-static volatile int luminosite_environnement=200;
+//static volatile int luminosite_environnement=200;
 
-void journee(){
-	if (luminosite_environnement==200){
-		luminosite_environnement=5000;
-	}
-	if (luminosite_environnement==5000){
-		luminosite_environnement=200;
-	}
+/*
+//classe pour gérer les variables d'environnement 
+Environnement::Environnement(int lum){
+	luminosite_environnement=lum;
 }
+
+int Environnement::getLum(){
+	return luminosite_environnement;
+}
+
+void Environnement::runSetLum(){
+    int delta;
+	while (1){
+    if (luminosite_environnement<250){
+		delta = 200;
+    }
+    else if (luminosite_environnement>2000){
+		delta = -200;
+    }
+	luminosite_environnement=luminosite_environnement+delta;
+    sleep(temps);
+    }	
+}
+
+
 //classe AnalogSensorTemperature
 AnalogSensorTemperature::AnalogSensorTemperature(int d,int  t):Device(),val(t),temps(d){
   alea=1;
@@ -37,7 +54,7 @@ void AnalogSensorLuminosity::run(){
   while(1){
     alea=10-alea;
     if(ptrmem!=NULL)
-      *ptrmem=alea;
+      *ptrmem=luminosite_environnement+alea;
     sleep(temps);
   }
 }
@@ -152,7 +169,7 @@ void I2CActuatorScreen::run(){
     sleep(1);
     }
 }
-
+*/
 
 
 

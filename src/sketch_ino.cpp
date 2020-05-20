@@ -6,7 +6,8 @@ void Board::setup(){
   // on configure la vitesse de la liaison
   Serial.begin(9600);
   //=========projet===========
-
+  //pinMode(2, OUTPUT);
+  pinMode(1, INPUT);
 
 
 
@@ -37,16 +38,19 @@ void Board::loop(){
 
 		lum = analogRead(1);
 		
-		if (lum<400){
+		/*if (lum<400){
 			digitalWrite(2,LOW);
 		}
 		if (lum>450){
 			digitalWrite(2,HIGH);
-		}
+		}*/
+		cout<<"lum: "<<lum<<endl;
 		sleep(1);
 	}
 
-	journee();
+	//cout<<getLum()<<endl;
+
+
 
 
 

@@ -1,6 +1,7 @@
 #include "core_simulation.h"
-#include "mydevices.h"
-
+//#include "mydevices.h"
+#include "sensor_lum.h"
+#include "environnement.h"
 
 
 int main(){
@@ -9,15 +10,17 @@ int main(){
   // achat des senseurs et actionneurs
 
 //==========projet============
+  //démarrage simulateur projet
+  initEnv();
   AnalogSensorLuminosity luminosity(DELAY);
-  ActuatorPorte porte(DELAY);
+  //ActuatorPorte porte(DELAY);
 
-  I2CActuatorScreen screen;
+  //I2CActuatorScreen screen;
 
 
   esp8266.pin(1,luminosity);
-  esp8266.pin(2,porte);
-  esp8266.i2c(1,screen);
+ // esp8266.pin(2,porte);
+ // esp8266.i2c(1,screen);
 
 
 //==========question==========
