@@ -8,8 +8,8 @@ void Board::setup(){
   //=========projet===========
   //pinMode(2, OUTPUT);
   pinMode(1, INPUT);
-
-
+  pinMode(2, OUTPUT);
+    //cout << "((((tututsetup))))"<<endl;
 
 
 
@@ -33,17 +33,19 @@ void Board::loop(){
  //==================projet=============
 	int lum =0;
     int i=0;
-	
+	    //cout << "((((tutuino))))"<<endl;
 	for(i=0;i<12;i++){
 
 		lum = analogRead(1);
 		
-		/*if (lum<400){
+		if (lum<400){
 			digitalWrite(2,LOW);
+			
 		}
 		if (lum>450){
 			digitalWrite(2,HIGH);
-		}*/
+			
+		}
 		cout<<"lum: "<<lum<<endl;
 		sleep(1);
 	}
