@@ -8,7 +8,9 @@ void Board::setup(){
   //=========projet===========
   //pinMode(2, OUTPUT);
   pinMode(1, INPUT);
+  pinMode(3, INPUT);
   pinMode(2, OUTPUT);
+  pinMode(4, OUTPUT);
     //cout << "((((tututsetup))))"<<endl;
 
 
@@ -32,20 +34,30 @@ void Board::setup(){
 void Board::loop(){
  //==================projet=============
 	int lum =0;
+	int water = HIGH;
     int i=0;
 	    //cout << "((((tutuino))))"<<endl;
 	for(i=0;i<12;i++){
 
 		lum = analogRead(1);
+		water = digitalRead(3);
 		
 		if (lum<400){
-			digitalWrite(2,LOW);
-			
+			digitalWrite(2,LOW);		
 		}
 		if (lum>450){
 			digitalWrite(2,HIGH);
-			
 		}
+	
+		if(water==HIGH){
+			cout<<"il y'a de l'eau"<<endl;
+			digitalWrite(4, LOW);
+		}
+		else{
+			cout<<"il y'a pas d'eau, elles ont tout bu"<<endl;
+			digitalWrite(4, HIGH);
+		}
+			
 		cout<<"lum: "<<lum<<endl;
 		sleep(1);
 	}

@@ -1,7 +1,9 @@
 #include "core_simulation.h"
 //#include "mydevices.h"
 #include "sensor_lum.h"
+#include "sensor_water.h"
 #include "door.h"
+#include "actuator_pump.h"
 #include "environnement.h"
 
 
@@ -14,16 +16,21 @@ int main(){
 //==========projet============
   //démarrage simulateur projet
   initEnv();
+
   AnalogSensorLuminosity luminosity(1);
-  ActuatorPorte porte(DELAY);
+  ActuatorDoor porte(DELAY);
+  AnalogSensorWater water(1);
+  ActuatorPump pompe(DELAY);
 
   //I2CActuatorScreen screen;
 
 
   esp8266.pin(1,luminosity);
   esp8266.pin(2,porte);
- // esp8266.i2c(1,screen);
-   // cout << "((((tututboard))))"<<endl;
+  esp8266.pin(3,water);
+  esp8266.pin(4,pompe);
+  // esp8266.i2c(1,screen);
+  // cout << "((((tututboard))))"<<endl;
 
 //==========question==========
   /*AnalogSensorTemperature temperature(DELAY,TEMP);

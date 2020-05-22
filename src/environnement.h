@@ -14,6 +14,12 @@ int getLumEnv();
 
 void *threadLum(void *_arg);
 
+int getWaterEnv();
+
+void setWaterEnv();
+
+int getGrainEnv();
+
 void initEnv();
 
 #endif 

@@ -1,5 +1,5 @@
-#ifndef DOOR_H
-#define DOOR_H
+#ifndef ACTUATOR_PUMP_H
+#define ACTUATOR_PUMP_H
 
 #include <iostream>
 #include <unistd.h>
@@ -10,7 +10,7 @@
 
 
 //classe pour agir sur la porte du poulailler 
-class ActuatorDoor: public Device {
+class ActuatorPump: public Device {
 private:
   //etat de la porte 
   int state;
@@ -18,7 +18,7 @@ private:
   int temps;
 public:
   // initialisation du temps de rafraichissement
-  ActuatorDoor(int t);
+  ActuatorPump(int t);
   // thread representant l'actionneur et permettant de fonctionner independamment de la board
   virtual void run();
 };
