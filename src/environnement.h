@@ -18,7 +18,13 @@ int getWaterEnv();
 
 void setWaterEnv();
 
+void *threadWat(void *_arg);
+
 int getGrainEnv();
+
+void setGrainEnv();
+
+void *threadGrain(void *_arg);
 
 void initEnv();
 

@@ -2,8 +2,10 @@
 //#include "mydevices.h"
 #include "sensor_lum.h"
 #include "sensor_water.h"
-#include "door.h"
+#include "sensor_grain.h"
+#include "actuator_door.h"
 #include "actuator_pump.h"
+#include "actuator_trap.h"
 #include "environnement.h"
 
 
@@ -19,8 +21,10 @@ int main(){
 
   AnalogSensorLuminosity luminosity(1);
   ActuatorDoor porte(DELAY);
-  AnalogSensorWater water(1);
+  DigitalSensorWater water(1);
   ActuatorPump pompe(DELAY);
+  AnalogSensorGrain grain(1);
+  ActuatorTrap trappe(DELAY);
 
   //I2CActuatorScreen screen;
 
@@ -29,6 +33,8 @@ int main(){
   esp8266.pin(2,porte);
   esp8266.pin(3,water);
   esp8266.pin(4,pompe);
+  esp8266.pin(5,grain);
+  esp8266.pin(6,trappe);
   // esp8266.i2c(1,screen);
   // cout << "((((tututboard))))"<<endl;
 

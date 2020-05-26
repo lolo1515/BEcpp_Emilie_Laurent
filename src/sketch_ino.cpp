@@ -9,8 +9,10 @@ void Board::setup(){
   //pinMode(2, OUTPUT);
   pinMode(1, INPUT);
   pinMode(3, INPUT);
+  pinMode(5, INPUT);
   pinMode(2, OUTPUT);
   pinMode(4, OUTPUT);
+  pinMode(6, OUTPUT);
     //cout << "((((tututsetup))))"<<endl;
 
 
@@ -35,17 +37,19 @@ void Board::loop(){
  //==================projet=============
 	int lum =0;
 	int water = HIGH;
+	int grain = 50;
     int i=0;
-	    //cout << "((((tutuino))))"<<endl;
-	for(i=0;i<12;i++){
+
+	//for(i=0;i<12;i++){
 
 		lum = analogRead(1);
 		water = digitalRead(3);
-		
+		grain = digitalRead(5);
+
 		if (lum<400){
 			digitalWrite(2,LOW);		
 		}
-		if (lum>450){
+		else if (lum>450){
 			digitalWrite(2,HIGH);
 		}
 	
@@ -57,10 +61,20 @@ void Board::loop(){
 			cout<<"il y'a pas d'eau, elles ont tout bu"<<endl;
 			digitalWrite(4, HIGH);
 		}
+
+        if (grain>11){
+			cout<<"il y'a du grain"<<endl;
+			digitalWrite(6,LOW);		
+		}
+		else if (grain<10){
+			cout<<"il n y'a plus de grain, tout a été mangé"<<endl;
+			digitalWrite(6,HIGH);
+		}
 			
 		cout<<"lum: "<<lum<<endl;
+		cout<<"grain: "<<grain<<endl;
 		sleep(1);
-	}
+	//}
 
 	//cout<<getLum()<<endl;
 

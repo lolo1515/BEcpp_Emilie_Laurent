@@ -1,4 +1,4 @@
-#include "door.h"
+#include "actuator_door.h"
 
 //classe ActuatorPorte
 ActuatorDoor::ActuatorDoor(int t):Device(),state(LOW),temps(t){

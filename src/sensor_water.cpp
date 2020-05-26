@@ -1,11 +1,11 @@
 #include "sensor_water.h"
 
-//classe AnalogSensorWater
-AnalogSensorWater::AnalogSensorWater(int d):Device(),temps(d){
+//classe DigitalSensorWater
+DigitalSensorWater::DigitalSensorWater(int d):Device(),temps(d){
     state = HIGH; 
 }
 
-void AnalogSensorWater::run(){
+void DigitalSensorWater::run(){
   while(1){
     /*if(ptrmem!=NULL)
       *ptrmem=getWaterEnv()+alea;*/

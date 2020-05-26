@@ -1,5 +1,5 @@
-#ifndef DOOR_H
-#define DOOR_H
+#ifndef ACTUATOR_DOOR_H
+#define ACTUATOR_DOOR_H
 
 #include <iostream>
 #include <unistd.h>
