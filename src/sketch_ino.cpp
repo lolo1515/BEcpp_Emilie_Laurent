@@ -70,6 +70,7 @@ void Board::loop(){
 			cout<<"il n y'a plus de grain, tout a été mangé"<<endl;
 			digitalWrite(6,HIGH);
 		}
+
 			
 		cout<<"lum: "<<lum<<endl;
 		cout<<"grain: "<<grain<<endl;

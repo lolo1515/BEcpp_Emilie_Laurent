@@ -9,6 +9,7 @@ void DigitalSensorWater::run(){
   while(1){
     /*if(ptrmem!=NULL)
       *ptrmem=getWaterEnv()+alea;*/
+	cout<<"water: "<<getWaterEnv()<<endl;
     if (getWaterEnv()<1000){
 	state = LOW;
 	*ptrmem=state;

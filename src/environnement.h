@@ -28,4 +28,20 @@ void *threadGrain(void *_arg);
 
 void initEnv();
 
+class Poule{
+private : 
+  int faim;
+  int soif;
+  static int consoGrainTot;
+  static int consoEauTot;
+public :
+  Poule();
+  Poule(int grain, int eau);
+  static void Run();
+  static void Picorent();
+  static void Boivent();
+};
+
+
+
 #endif 

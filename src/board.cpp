@@ -13,7 +13,6 @@
 int main(){
   // creation d'une board
   Board esp8266;
-  // achat des senseurs et actionneurs
 
 //==========projet============
   //démarrage simulateur projet
