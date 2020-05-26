@@ -9,9 +9,9 @@ void ActuatorDoor::run(){
     if(ptrmem!=NULL)
       state=*ptrmem;
     if (state==LOW)
-      cout << "((((porte fermée))))"<<endl;
+      cout << "((((porte fermée))))\n"<<endl;
     else
-    cout << "((((porte ouverte))))"<<endl;
+    cout << "((((porte ouverte))))\n"<<endl;
     sleep(temps);
     //cout << "((((coucou))))"<<endl;
     }

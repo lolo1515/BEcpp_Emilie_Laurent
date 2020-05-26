@@ -13,7 +13,6 @@ void Board::setup(){
   pinMode(2, OUTPUT);
   pinMode(4, OUTPUT);
   pinMode(6, OUTPUT);
-    //cout << "((((tututsetup))))"<<endl;
 
 
 
@@ -34,13 +33,12 @@ void Board::setup(){
 
 // la boucle de controle arduino
 void Board::loop(){
- //==================projet=============
+ //==================projet==================
 	int lum =0;
 	int water = HIGH;
 	int grain = 50;
-    int i=0;
-
-	//for(i=0;i<12;i++){
+    
+	char buf[100];
 
 		lum = analogRead(1);
 		water = digitalRead(3);
@@ -54,30 +52,32 @@ void Board::loop(){
 		}
 	
 		if(water==HIGH){
-			cout<<"il y'a de l'eau"<<endl;
+			cout<<"il y'a de l'eau\n"<<endl;
 			digitalWrite(4, LOW);
 		}
 		else{
-			cout<<"il y'a pas d'eau, elles ont tout bu"<<endl;
+			cout<<"il y'a pas d'eau, elles ont tout bu\n"<<endl;
 			digitalWrite(4, HIGH);
 		}
 
         if (grain>11){
-			cout<<"il y'a du grain"<<endl;
+			cout<<"il y'a du grain\n"<<endl;
 			digitalWrite(6,LOW);		
 		}
 		else if (grain<10){
-			cout<<"il n y'a plus de grain, tout a été mangé"<<endl;
+			cout<<"il n y'a plus de grain, tout a été mangé\n"<<endl;
 			digitalWrite(6,HIGH);
 		}
 
 			
-		cout<<"lum: "<<lum<<endl;
-		cout<<"grain: "<<grain<<endl;
-		sleep(1);
-	//}
+		cout<<"lum: "<<lum<<"\n"<<endl;
+		cout<<"grain: "<<grain<<"\n"<<endl;
+		sprintf(buf,"niveau grain: %d\n", grain);
+		bus.write(1,buf,100);
+		sprintf(buf,"niveau eau: %s", (water==HIGH)?"OK\n":"trop bas\n");
+		bus.write(1,buf,100);
 
-	//cout<<getLum()<<endl;
+		sleep(1);
 
 
 

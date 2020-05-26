@@ -38,8 +38,6 @@ void setWaterEnv(){
 
 void *threadWater(void *_arg){
   while(1){
-    //water_level = water_level-250 ;//pour simuler la consommation d'eau par les poules
-	//Poule cot = *((Poule *)_arg);
     Poule::Boivent();
     sleep(1);
   }
@@ -50,13 +48,11 @@ int getGrainEnv(){
 }
 
 void setGrainEnv(){
-  grain_level = 50;
+  grain_level = 100;
 }
 
 void *threadGrain(void *_arg){
   while(1){
-    //grain_level = grain_level-3 ;//pour simuler la consommation de grain par les poules
-   // Poule cot = *((Poule *)_arg);
     Poule::Picorent();
     sleep(1);
   }
@@ -111,22 +107,22 @@ void Poule::Run(){
 
 void Poule::Picorent(){
 	if (grain_level>=consoGrainTot){
-    	cout<<"elles picorent"<<endl;
+    	//cout<<"elles picorent\n"<<endl;
 		grain_level-=consoGrainTot;
 	}
 	else {
-		cout<<"elles ne peuvent pas picorer, elles attendent du grain"<<endl;
+		//cout<<"elles ne peuvent pas picorer, elles attendent du grain\n"<<endl;
 		grain_level=0;
 	}
 }
 
 void Poule::Boivent(){
 	if (water_level>=consoEauTot){
-    	cout<<"elles boivent"<<endl;
+    	//cout<<"elles boivent\n"<<endl;
 		water_level-=consoEauTot;
 	}
 	else {
-		cout<<"elles ne peuvent pas boire, elles attendent de l'eau"<<endl;
+		//cout<<"elles ne peuvent pas boire, elles attendent de l'eau\n"<<endl;
 		water_level=0;
 	}
 }

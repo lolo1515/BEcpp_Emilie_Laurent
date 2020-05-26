@@ -9,9 +9,9 @@ void ActuatorTrap::run(){
     if(ptrmem!=NULL)
       state=*ptrmem;
     if (state==LOW)
-      cout << "((((trappe fermée))))"<<endl;
+      cout << "((((trappe fermée))))\n"<<endl;
     else{
-      cout << "((((trappe ouverte))))"<<endl;
+      cout << "((((trappe ouverte))))\n"<<endl;
       setGrainEnv();
     }
     sleep(temps);

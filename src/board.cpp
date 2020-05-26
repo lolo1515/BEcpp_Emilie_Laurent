@@ -6,7 +6,9 @@
 #include "actuator_door.h"
 #include "actuator_pump.h"
 #include "actuator_trap.h"
+#include "display_screen.h"
 #include "environnement.h"
+
 
 
 
@@ -25,7 +27,7 @@ int main(){
   AnalogSensorGrain grain(1);
   ActuatorTrap trappe(DELAY);
 
-  //I2CActuatorScreen screen;
+  I2CActuatorScreen screen;
 
 
   esp8266.pin(1,luminosity);
@@ -34,7 +36,8 @@ int main(){
   esp8266.pin(4,pompe);
   esp8266.pin(5,grain);
   esp8266.pin(6,trappe);
-  // esp8266.i2c(1,screen);
+
+  esp8266.i2c(1,screen);
   // cout << "((((tututboard))))"<<endl;
 
 //==========question==========

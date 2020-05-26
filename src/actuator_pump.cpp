@@ -9,9 +9,9 @@ void ActuatorPump::run(){
     if(ptrmem!=NULL)
       state=*ptrmem;
     if (state==LOW)
-      cout << "((((pompe à l'arrêt))))"<<endl;
+      cout << "((((pompe à l'arrêt))))\n"<<endl;
     else{
-      cout << "((((pompe en marche))))"<<endl;
+      cout << "((((pompe en marche))))\n"<<endl;
       setWaterEnv();
     }
     sleep(temps);
