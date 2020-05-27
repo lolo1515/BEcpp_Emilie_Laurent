@@ -14,9 +14,10 @@ Le niveau de grain évolue entre 0 et 50cM en fonction des poules qui se trouven
 Pour compiler et lancer le programme, il vous suffit d'éxécuter le script bash compile_linux.sh,
 via la commande: `./compile_linux.sh`
 
-Pour ajouter ou retirer des poules du poulailler, veuillez modifier la méthode run() de la classe poule.
+Pour ajouter ou retirer des poules du poulailler, veuillez modifier la méthode Run() de la classe poule.
 Elle se trouve dans environnement.cpp.
 ```ruby
+/*cette méthode permet d'initialiser la simulation de la présence de poule dans le poulailler*/
 void Poule::Run(){
   /*les 2 threads suivant vont permettre de faire évoluer le niveau de grain et d'eau
 	en fonction de la consommation des poules créées*/
