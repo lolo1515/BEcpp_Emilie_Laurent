@@ -38,8 +38,8 @@ public :
   Poule();
   Poule(int grain, int eau);
   static void Run();
-  static void Picorent();
-  static void Boivent();
+  static void Picorent();// throw(string);
+  static void Boivent();// throw(string);
 };
 
 

@@ -1,6 +1,6 @@
 #include "environnement.h"
 
-static volatile int luminosite_environnement = 200;
+static volatile int luminosite_environnement = 200;//luminosité de l'environnement en lux 
 
 static volatile int water_level = 3000;//niveau d'eau en mL 
 
@@ -38,8 +38,12 @@ void setWaterEnv(){
 
 void *threadWater(void *_arg){
   while(1){
-    Poule::Boivent();
-    sleep(1);
+    try {
+		Poule::Boivent();
+	} catch (string const& error){
+		cout<<"Error=> "<<error<<endl;
+	}
+	sleep(1);
   }
 }
 
@@ -53,7 +57,11 @@ void setGrainEnv(){
 
 void *threadGrain(void *_arg){
   while(1){
-    Poule::Picorent();
+    try {
+		Poule::Picorent();
+	} catch (string const& error){
+		cout<<"Error=> "<<error<<endl;
+	}
     sleep(1);
   }
 }
@@ -93,6 +101,10 @@ void Poule::Run(){
   Poule cotcot4;
   Poule cotcot5;
   Poule cotcot6;
+  Poule cotcot7;
+  Poule cotcot8;
+  Poule cotcot9;
+  Poule cotcot10;
 
   if (pthread_create(&thWat, NULL, threadWater, (void *)&cotcot1))
   {
@@ -102,10 +114,10 @@ void Poule::Run(){
   {
     cout<<"error thread grain"<<endl;
   }
-
 }
 
-void Poule::Picorent(){
+
+void Poule::Picorent(){// throw(string){
 	if (grain_level>=consoGrainTot){
     	//cout<<"elles picorent\n"<<endl;
 		grain_level-=consoGrainTot;
@@ -113,10 +125,13 @@ void Poule::Picorent(){
 	else {
 		//cout<<"elles ne peuvent pas picorer, elles attendent du grain\n"<<endl;
 		grain_level=0;
+		throw string("elles ne peuvent pas picorer, elles attendent du grain\n");
+		
 	}
 }
 
-void Poule::Boivent(){
+
+void Poule::Boivent(){// throw(string){
 	if (water_level>=consoEauTot){
     	//cout<<"elles boivent\n"<<endl;
 		water_level-=consoEauTot;
@@ -124,5 +139,7 @@ void Poule::Boivent(){
 	else {
 		//cout<<"elles ne peuvent pas boire, elles attendent de l'eau\n"<<endl;
 		water_level=0;
+		throw string("elles ne peuvent pas boire, elles attendent de l'eau\n");
+		
 	}
 }

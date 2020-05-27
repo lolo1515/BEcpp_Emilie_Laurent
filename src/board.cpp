@@ -13,12 +13,17 @@
 
 
 int main(){
+
+
+ //démarrage simulateur projet
+  initEnv();
+
+
   // creation d'une board
   Board esp8266;
 
 //==========projet============
-  //démarrage simulateur projet
-  initEnv();
+ 
 
   AnalogSensorLuminosity luminosity(1);
   ActuatorDoor porte(DELAY);

@@ -42,21 +42,26 @@ void Board::loop(){
 
 		lum = analogRead(1);
 		water = digitalRead(3);
-		grain = digitalRead(5);
+		grain = analogRead(5);
+
+		cout<<"lum: "<<lum<<" lux\n";
+		cout<<"grain: "<<grain<<" cM\n"<<endl;
 
 		if (lum<400){
+			cout<<"il fait nuit\n";
 			digitalWrite(2,LOW);		
 		}
 		else if (lum>450){
+			cout<<"il fait jour\n";
 			digitalWrite(2,HIGH);
 		}
 	
 		if(water==HIGH){
-			cout<<"il y'a de l'eau\n"<<endl;
+			cout<<"il y'a de l'eau\n";
 			digitalWrite(4, LOW);
 		}
 		else{
-			cout<<"il y'a pas d'eau, elles ont tout bu\n"<<endl;
+			cout<<"il y'a pas d'eau, elles ont tout bu\n";
 			digitalWrite(4, HIGH);
 		}
 
@@ -70,9 +75,8 @@ void Board::loop(){
 		}
 
 			
-		cout<<"lum: "<<lum<<"\n"<<endl;
-		cout<<"grain: "<<grain<<"\n"<<endl;
-		sprintf(buf,"niveau grain: %d\n", grain);
+
+		sprintf(buf,"niveau grain: %d cM\n", grain);
 		bus.write(1,buf,100);
 		sprintf(buf,"niveau eau: %s", (water==HIGH)?"OK\n":"trop bas\n");
 		bus.write(1,buf,100);

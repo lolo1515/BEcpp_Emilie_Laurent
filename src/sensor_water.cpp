@@ -7,7 +7,7 @@ DigitalSensorWater::DigitalSensorWater(int d):Device(),temps(d){
 
 void DigitalSensorWater::run(){
   while(1){
-	//cout<<"water: "<<getWaterEnv()<<endl;
+	cout<<"water: "<<getWaterEnv()<<" mL\n";
     if (getWaterEnv()<1000){
 	state = LOW;
 	*ptrmem=state;
