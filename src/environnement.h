@@ -40,7 +40,14 @@ public :
   static void Run();
   static void Picorent();// throw(string);
   static void Boivent();// throw(string);
+  int getFaim();
+  int getSoif();
+
 };
+
+  Poule operator+(Poule Pa, Poule Pb);
+  //retourne une poule qui aura comme faim et soif une moyenne de la faim et de la soif de ses "parents".
+
 
 
 

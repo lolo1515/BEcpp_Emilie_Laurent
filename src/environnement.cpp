@@ -96,8 +96,9 @@ void Poule::Run(){
   pthread_t thGrain;
 
   Poule cotcot1(1, 110);
-  Poule cotcot2(2, 140);
-  Poule cotcot3;
+  Poule cotcot2(3, 140);
+  Poule cotcotFille;
+  cotcotFille = cotcot1+cotcot2;
   Poule cotcot4;
   Poule cotcot5;
   Poule cotcot6;
@@ -142,4 +143,20 @@ void Poule::Boivent(){// throw(string){
 		throw string("elles ne peuvent pas boire, elles attendent de l'eau\n");
 		
 	}
+}
+
+int Poule::getFaim(){
+	return faim;
+}
+
+int Poule::getSoif(){
+	return soif;
+}
+
+//retourne une poule qui aura comme faim et soif une moyenne de la faim et de la soif de ses "parents".
+Poule operator+(Poule Pa, Poule Pb)
+{
+    Poule pouleFille((int)(Pa.getFaim()+Pb.getFaim())/2,(int)(Pa.getSoif()+Pb.getSoif())/2);
+	cout<<"la poule fille à une faim de: "<<pouleFille.getFaim()<<" et une soif de: "<<pouleFille.getSoif()<<endl;
+    return pouleFille;
 }
