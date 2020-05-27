@@ -52,4 +52,4 @@ void Poule::Run(){
   }
 }
 ```
-Recompileze et relancez avec `./compile_linux.sh`
+Recompilez et relancez avec:`./compile_linux.sh``
