@@ -7,12 +7,13 @@ ActuatorDoor::ActuatorDoor(int t):Device(),state(LOW),temps(t){
 void ActuatorDoor::run(){
   while(1){
     if(ptrmem!=NULL)
-      state=*ptrmem;
+      	state=*ptrmem;
     if (state==LOW)
-      cout << "((((porte fermée))))\n"<<endl;
-    else
-    cout << "((((porte ouverte))))\n"<<endl;
-    sleep(temps);
-    //cout << "((((coucou))))"<<endl;
+      	cout << "((((porte fermée))))\n"<<endl;
+    else {
+    	cout << "((((porte ouverte))))\n"<<endl;
     }
+	sleep(temps);
+  }
+
 }
