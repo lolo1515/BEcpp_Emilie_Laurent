@@ -16,7 +16,7 @@ via la commande: `./compile_linux.sh`
 
 Pour ajouter ou retirer des poules du poulailler, veuillez modifier la méthode Run() de la classe poule.
 Elle se trouve dans environnement.cpp.
-```cpptools
+```cpp
 /*cette méthode permet d'initialiser la simulation de la présence de poule dans le poulailler*/
 void Poule::Run(){
   /*les 2 threads suivant vont permettre de faire évoluer le niveau de grain et d'eau
