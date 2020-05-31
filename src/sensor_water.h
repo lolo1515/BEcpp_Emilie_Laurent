@@ -9,7 +9,7 @@
 #include "environnement.h"
 
 
-// exemple de capteur analogique de niveau d'eau, ne pas oublier d'heriter de Device
+// exemple de capteur digital de niveau d'eau, ne pas oublier d'heriter de Device
 class  DigitalSensorWater: public Device {
 private:
   //etat du bouton

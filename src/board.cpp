@@ -14,27 +14,24 @@
 
 int main(){
 
-
+//==========projet============
+ 
  //démarrage simulateur projet
   initEnv();
 
-
   // creation d'une board
   Board esp8266;
-
-//==========projet============
- 
-
+  //création des instances de capteurs et d'actionneurs
   AnalogSensorLuminosity luminosity(1);
   ActuatorDoor porte(DELAY);
   DigitalSensorWater water(1);
   ActuatorPump pompe(DELAY);
   AnalogSensorGrain grain(1);
   ActuatorTrap trappe(DELAY);
-
+  //création de l'écran
   I2CActuatorScreen screen;
 
-
+  //link entre les instances précedement créées et la carte
   esp8266.pin(1,luminosity);
   esp8266.pin(2,porte);
   esp8266.pin(3,water);
